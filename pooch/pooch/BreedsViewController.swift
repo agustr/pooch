@@ -7,16 +7,45 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class BreedsViewController: UIViewController {
+class BreedsViewController: UIViewController, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    var breedsDatasource:[String:JSON] = [:]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        refresh()
     }
     
-
+    func refresh() {
+        DogApi.getBreeds { (breedsList) in
+            self.breedsDatasource = breedsList
+            self.tableView.reloadData()
+        }
+    }
+    
+    func tableView(_: UITableView, numberOfRowsInSection: Int) -> Int{
+        return breedsDatasource?.count
+    }
+    
+    func numberOfSections(in: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell.init()
+        if let dog = self.breedsDatasource[4]{
+            cell.textLabel?.text =
+        }
+        
+    
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -26,5 +55,5 @@ class BreedsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
