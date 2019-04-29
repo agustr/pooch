@@ -8,6 +8,7 @@ target 'pooch' do
   # Pods for pooch
   pod 'Alamofire'
   pod 'AlamofireSwiftyJSON'
+  pod 'AlamofireImage'
 
   target 'poochTests' do
     inherit! :search_paths

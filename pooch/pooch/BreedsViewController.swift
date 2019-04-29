@@ -9,15 +9,16 @@
 import UIKit
 import SwiftyJSON
 
-class BreedsViewController: UIViewController, UITableViewDataSource {
+class BreedsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var breedsDatasource:[String:JSON] = [:]
+    var breedsDatasource:[DogBreed] = []
+    var lastSelectedDog: DogBreed?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Breeds"
         // Do any additional setup after loading the view.
         refresh()
     }
@@ -30,7 +31,7 @@ class BreedsViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_: UITableView, numberOfRowsInSection: Int) -> Int{
-        return breedsDatasource?.count
+        return breedsDatasource.count
     }
     
     func numberOfSections(in: UITableView) -> Int {
@@ -38,22 +39,38 @@ class BreedsViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init()
-        if let dog = self.breedsDatasource[4]{
-            cell.textLabel?.text =
+        
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cellId")
+        cell.textLabel?.text = breedsDatasource[indexPath.row].name
+        print(breedsDatasource[indexPath.row].subBreeds.joined(separator: ", "))
+        cell.detailTextLabel?.text = breedsDatasource[indexPath.row].subBreeds.joined(separator: ", ")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.lastSelectedDog = breedsDatasource[indexPath.row]
+        let selectedBreed = breedsDatasource[indexPath.row]
+        if selectedBreed.subBreeds.count > 0 {
+            // navigat to subbreed page
+            performSegue(withIdentifier: "DogSubBreedsSegue", sender: nil)
+        } else {
+            // navigate to breeds detail page
+            performSegue(withIdentifier: "dogBreedDetailsSegue", sender: nil)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DogSubBreedsSegue" {
+            if let destinationVC = segue.destination as? DogSubBreedsViewController {
+                destinationVC.dog = self.lastSelectedDog
+            }
         }
         
-    
+        if segue.identifier == "dogBreedDetailsSegue" {
+            if let destinationVC = segue.destination as? DogBreedDetailsViewController {
+                destinationVC.dog = self.lastSelectedDog
+            }
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
 }

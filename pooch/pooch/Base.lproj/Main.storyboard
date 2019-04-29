@@ -37,6 +37,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PdY-kI-bGa">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Eoa-hQ-Xyd"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4fA-sV-dSL"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -51,11 +55,105 @@
                     <navigationItem key="navigationItem" id="8dq-B9-B6A"/>
                     <connections>
                         <outlet property="tableView" destination="PdY-kI-bGa" id="mdT-fw-yKv"/>
+                        <segue destination="HKX-24-Qls" kind="show" identifier="DogSubBreedsSegue" id="q99-n7-vnf"/>
+                        <segue destination="i2g-bd-g6j" kind="show" identifier="dogBreedDetailsSegue" id="ggP-cH-e5g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-674.39999999999998" y="49.925037481259373"/>
+            <point key="canvasLocation" x="-548" y="11"/>
+        </scene>
+        <!--Dog Sub Breeds View Controller-->
+        <scene sceneID="PFr-D3-dyL">
+            <objects>
+                <viewController id="HKX-24-Qls" customClass="DogSubBreedsViewController" customModule="pooch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aDk-PA-JSO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kgP-m9-UQ9">
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kgP-m9-UQ9" secondAttribute="height" multiplier="1:1" id="ACp-XF-VnB"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="se8-K3-dVN">
+                                <rect key="frame" x="0.0" y="440" width="375" height="227"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HKX-24-Qls" id="Vb9-Tx-sfR"/>
+                                    <outlet property="delegate" destination="HKX-24-Qls" id="fKw-B1-p5D"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Sn-fU-8RF" firstAttribute="bottom" secondItem="se8-K3-dVN" secondAttribute="bottom" id="9yd-Sd-frt"/>
+                            <constraint firstItem="se8-K3-dVN" firstAttribute="top" secondItem="kgP-m9-UQ9" secondAttribute="bottom" constant="1" id="Emo-D4-AtK"/>
+                            <constraint firstItem="kgP-m9-UQ9" firstAttribute="leading" secondItem="7Sn-fU-8RF" secondAttribute="leading" id="IVV-0z-dY7"/>
+                            <constraint firstItem="kgP-m9-UQ9" firstAttribute="width" secondItem="aDk-PA-JSO" secondAttribute="width" id="hk3-hd-bnZ"/>
+                            <constraint firstItem="se8-K3-dVN" firstAttribute="leading" secondItem="7Sn-fU-8RF" secondAttribute="leading" id="rco-ds-UbL"/>
+                            <constraint firstItem="kgP-m9-UQ9" firstAttribute="top" secondItem="7Sn-fU-8RF" secondAttribute="top" id="rt3-qH-8qc"/>
+                            <constraint firstItem="7Sn-fU-8RF" firstAttribute="trailing" secondItem="se8-K3-dVN" secondAttribute="trailing" id="rvZ-sb-yji"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Sn-fU-8RF"/>
+                    </view>
+                    <connections>
+                        <outlet property="image" destination="kgP-m9-UQ9" id="YhT-RR-H1V"/>
+                        <outlet property="tableView" destination="se8-K3-dVN" id="tZc-pK-0jk"/>
+                        <segue destination="i2g-bd-g6j" kind="show" identifier="dogBreedDetailsSegue" id="lEe-gK-fTc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vxS-NE-TId" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="268" y="272"/>
+        </scene>
+        <!--Dog Breed Details View Controller-->
+        <scene sceneID="5IB-bp-OEq">
+            <objects>
+                <viewController id="i2g-bd-g6j" customClass="DogBreedDetailsViewController" customModule="pooch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IQP-fT-LyQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFI-Z1-yLk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vFI-Z1-yLk" secondAttribute="height" multiplier="1:1" id="sbd-rT-hj0"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TeM-SR-0o6">
+                                <rect key="frame" x="0.0" y="439" width="375" height="228"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="i2g-bd-g6j" id="Pye-RF-um5"/>
+                                    <outlet property="delegate" destination="i2g-bd-g6j" id="fMm-Hc-oPf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="I6A-cc-jBR" firstAttribute="bottom" secondItem="TeM-SR-0o6" secondAttribute="bottom" id="5co-D8-rQB"/>
+                            <constraint firstItem="I6A-cc-jBR" firstAttribute="trailing" secondItem="TeM-SR-0o6" secondAttribute="trailing" id="XBL-Hk-VQO"/>
+                            <constraint firstItem="TeM-SR-0o6" firstAttribute="top" secondItem="vFI-Z1-yLk" secondAttribute="bottom" id="a7J-TW-lVz"/>
+                            <constraint firstItem="TeM-SR-0o6" firstAttribute="leading" secondItem="I6A-cc-jBR" secondAttribute="leading" id="dVT-Fc-dBf"/>
+                            <constraint firstItem="vFI-Z1-yLk" firstAttribute="top" secondItem="I6A-cc-jBR" secondAttribute="top" id="kmH-mU-zT3"/>
+                            <constraint firstItem="I6A-cc-jBR" firstAttribute="trailing" secondItem="vFI-Z1-yLk" secondAttribute="trailing" id="z0v-Ng-Flu"/>
+                            <constraint firstItem="vFI-Z1-yLk" firstAttribute="leading" secondItem="I6A-cc-jBR" secondAttribute="leading" id="zLO-Io-1C8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I6A-cc-jBR"/>
+                    </view>
+                    <connections>
+                        <outlet property="image" destination="vFI-Z1-yLk" id="2r6-rr-FRy"/>
+                        <outlet property="tableView" destination="TeM-SR-0o6" id="WbO-9j-WHB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Cl-Bz-uz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1018" y="10"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lEe-gK-fTc"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -13,6 +13,9 @@
 		A87CAB702277132500E50877 /* SubBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CAB6F2277132500E50877 /* SubBreed.swift */; };
 		A87CAB72227714AF00E50877 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CAB71227714AF00E50877 /* Image.swift */; };
 		A87CAB742277354C00E50877 /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CAB732277354C00E50877 /* BreedsViewController.swift */; };
+		A87CAB76227744C500E50877 /* DogBreeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CAB75227744C500E50877 /* DogBreeds.swift */; };
+		A87CAB782277524F00E50877 /* DogSubBreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CAB772277524F00E50877 /* DogSubBreedsViewController.swift */; };
+		A87CAB7A227756B100E50877 /* DogBreedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CAB79227756B100E50877 /* DogBreedDetailsViewController.swift */; };
 		A8BCF7762276DC9F0083E498 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCF7752276DC9F0083E498 /* AppDelegate.swift */; };
 		A8BCF77B2276DC9F0083E498 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BCF7792276DC9F0083E498 /* Main.storyboard */; };
 		A8BCF77E2276DC9F0083E498 /* pooch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A8BCF77C2276DC9F0083E498 /* pooch.xcdatamodeld */; };
@@ -41,6 +44,9 @@
 		A87CAB6F2277132500E50877 /* SubBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBreed.swift; sourceTree = "<group>"; };
 		A87CAB71227714AF00E50877 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		A87CAB732277354C00E50877 /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
+		A87CAB75227744C500E50877 /* DogBreeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreeds.swift; sourceTree = "<group>"; };
+		A87CAB772277524F00E50877 /* DogSubBreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogSubBreedsViewController.swift; sourceTree = "<group>"; };
+		A87CAB79227756B100E50877 /* DogBreedDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedDetailsViewController.swift; sourceTree = "<group>"; };
 		A8BCF7722276DC9F0083E498 /* pooch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pooch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCF7752276DC9F0083E498 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8BCF77A2276DC9F0083E498 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,9 +117,12 @@
 				A87CAB71227714AF00E50877 /* Image.swift */,
 				A87CAB6D227712AB00E50877 /* Breed.swift */,
 				A87CAB6F2277132500E50877 /* SubBreed.swift */,
+				A87CAB75227744C500E50877 /* DogBreeds.swift */,
 				A839A1E12276EF1D007B1D0A /* DogApi.swift */,
 				A8BCF7752276DC9F0083E498 /* AppDelegate.swift */,
 				A8BCF7792276DC9F0083E498 /* Main.storyboard */,
+				A87CAB79227756B100E50877 /* DogBreedDetailsViewController.swift */,
+				A87CAB772277524F00E50877 /* DogSubBreedsViewController.swift */,
 				A87CAB732277354C00E50877 /* BreedsViewController.swift */,
 				A8BCF77F2276DCA10083E498 /* Assets.xcassets */,
 				A8BCF7812276DCA10083E498 /* LaunchScreen.storyboard */,
@@ -306,10 +315,13 @@
 				A87CAB72227714AF00E50877 /* Image.swift in Sources */,
 				A87CAB742277354C00E50877 /* BreedsViewController.swift in Sources */,
 				A8BCF77E2276DC9F0083E498 /* pooch.xcdatamodeld in Sources */,
+				A87CAB782277524F00E50877 /* DogSubBreedsViewController.swift in Sources */,
 				A8BCF7762276DC9F0083E498 /* AppDelegate.swift in Sources */,
 				A87CAB6E227712AB00E50877 /* Breed.swift in Sources */,
+				A87CAB76227744C500E50877 /* DogBreeds.swift in Sources */,
 				A839A1E22276EF1D007B1D0A /* DogApi.swift in Sources */,
 				A87CAB702277132500E50877 /* SubBreed.swift in Sources */,
+				A87CAB7A227756B100E50877 /* DogBreedDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
