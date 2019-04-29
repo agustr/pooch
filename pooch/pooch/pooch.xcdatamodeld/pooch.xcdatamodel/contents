@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G6030" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BreedImages" representedClassName="BreedImages" syncable="YES" codeGenerationType="class">
+        <attribute name="url" optional="YES" attributeType="URI" syncable="YES"/>
+    </entity>
+    <entity name="Breeds" representedClassName="Breeds" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subbreeds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubBreed" inverseName="breed" inverseEntity="SubBreed" syncable="YES"/>
+    </entity>
+    <entity name="SubBreed" representedClassName="SubBreed" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="breed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Breeds" inverseName="subbreeds" inverseEntity="Breeds" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubBreedImages" inverseName="subbreed" inverseEntity="SubBreedImages" syncable="YES"/>
+    </entity>
+    <entity name="SubBreedImages" representedClassName="SubBreedImages" syncable="YES" codeGenerationType="class">
+        <attribute name="url" optional="YES" attributeType="URI" syncable="YES"/>
+        <relationship name="subbreed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubBreed" inverseName="images" inverseEntity="SubBreed" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Breeds" positionX="-3645.078125" positionY="-2100.95703125" width="128" height="75"/>
+        <element name="SubBreed" positionX="-3467.54296875" positionY="-2101.1640625" width="128" height="90"/>
+        <element name="SubBreedImages" positionX="-3270.6328125" positionY="-2123.55859375" width="128" height="75"/>
+        <element name="BreedImages" positionX="-3499.84765625" positionY="-1919.95703125" width="128" height="60"/>
+    </elements>
+</model>
